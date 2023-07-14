@@ -1,0 +1,241 @@
+Q1.Write a simple Banking System program by using OOPs concept where you can get account Holder name balance etc?
+
+public class Account {
+  private String name;
+  private String accountNumber;
+  private double balance;
+
+  public Account(String name, String accountNumber, double balance) {
+    this.name = name;
+    this.accountNumber = accountNumber;
+    this.balance = balance;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
+
+  public double getBalance() {
+    return balance;
+  }
+
+  public void setBalance(double balance) {
+    this.balance = balance;
+  }
+
+  public void deposit(double amount) {
+    balance += amount;
+  }
+
+  public void withdraw(double amount) {
+    balance -= amount;
+  }
+
+  public String getAccountInfo() {
+    return "Name: " + name + ", Account Number: " + accountNumber + ", Balance: " + balance;
+  }
+}
+
+
+Q2. Write a Program where you inherit method from parent class and show method Overridden Concept?
+
+class Parent {
+	void show() { System.out.println("Parent's show()"); }
+}
+
+class Child extends Parent {
+	@Override void show()
+	{
+		System.out.println("Child's show()");
+	}
+}
+class Main {
+	public static void main(String[] args)
+	{
+		Parent obj1 = new Parent();
+		obj1.show();
+
+		Parent obj2 = new Child();
+		obj2.show();
+	}
+}
+
+
+Q3.Write a program to show run time polymorphism in java?
+
+class Bike{  
+  void run(){System.out.println("running");}  
+}  
+class Splendor extends Bike{  
+  void run(){System.out.println("running safely with 60km");}  
+  
+  public static void main(String args[]){  
+    Bike b = new Splendor();//upcasting  
+    b.run();  
+  }  
+}  
+
+Q4.Write a program to show Compile time polymorphism in java?
+
+public class MethodOverloading {
+	
+	void show(int num1)
+	{
+		System.out.println("number 1 : " + num1);
+	}
+
+	void show(int num1, int num2)
+	{
+		System.out.println("number 1 : " + num1
+						+ " number 2 : " + num2);
+	}
+
+	public static void main(String[] args)
+	{
+		MethodOverloading obj = new MethodOverloading();
+	
+		obj.show(3);
+		obj.show(4, 5);
+	}
+}
+
+Q5. Achieve loose coupling in java by using OOPs  concept?
+
+public interface Topic
+{
+	void understand();
+}
+class Topic1 implements Topic {
+public void understand()
+	{
+		System.out.println("Got it");
+	}
+} class Topic2 implements Topic {
+public void understand()
+	{
+		System.out.println("understand");
+	}
+} public class Subject {
+public static void main(String[] args)
+	{
+		Topic t = new Topic1();
+		t.understand();
+	}
+}
+
+Q6. What is the benefit of encapsulation in java?
+
+1.Better Control
+Encapsulation provides ultimate control over the data members and data methods inside the class.
+
+2.Getter and Setter 
+The standard IDEs provide in-built support for ‘Getter and Setter’ methods, which increases the programming pace.
+
+3.Security
+Encapsulation prevents access to data members and data methods by any external classes. The encapsulation process improves the security of the encapsulated data.
+
+4.Flexibility
+Changes made to one part of the code can be successfully implemented without affecting any other part of the code.
+
+5.Data Hiding in Java
+Data hiding is a procedure done to avoid access to the data members and data methods and their logical implementation. Data hiding can be done by using the access specifiers.
+
+Q7.Is java a t 100% Object oriented Programming language? If no why ?
+
+no
+Java is not a fully object-oriented language as it supports primitive data types like int, byte, long, short, etc., which are not objects.
+ Hence these data types like int, float, double, etc., are not object-oriented.
+ That's why Java is not 100% object-oriented.
+
+Q8.What are the advantages of abstraction in java?
+
+1. It reduces the complexity of viewing things.
+2. Avoids code duplication and increases reusability.
+3. Helps to increase the security of an application or program as only essential details are provided to the user.
+4. It improves the maintainability of the application. 
+5. It improves the modularity of the application. 
+6. The enhancement will become very easy because without affecting end-users we can able to perform any type of changes in our internal system. 
+7. Improves code reusability and maintainability.
+8. Hides implementation details and exposes only relevant information.
+9. Provides a clear and simple interface to the user.
+10. Increases security by preventing access to internal class details.
+
+Q9.What is an abstraction explained with an Example?
+
+In Java, abstraction is achieved by interfaces and abstract classes.
+ We can achieve 100% abstraction using interfaces.
+Data Abstraction may also be defined as the process of identifying only the required characteristics of an object ignoring the irrelevant details.
+ The properties and behaviors of an object differentiate it from other objects of similar type and also help in classifying/grouping the objects.
+
+example
+abstract class Shape {
+	String color;
+	abstract double area();
+	public abstract String toString();
+	public Shape(String color)
+	{
+		System.out.println("Shape constructor called");
+		this.color = color;
+	}
+	public String getColor() { return color; }
+}
+class Circle extends Shape {
+	double radius;
+	public Circle(String color, double radius)
+	{
+		super(color);
+		System.out.println("Circle constructor called");
+		this.radius = radius;
+	}
+	@Override double area()
+	{
+		return Math.PI * Math.pow(radius, 2);
+	}
+
+	@Override public String toString()
+	{
+		return "Circle color is " + super.getColor()
+			+ "and area is : " + area();
+	}
+}
+public class Test {
+	public static void main(String[] args)
+	{
+		Shape s1 = new Circle("Red", 2.2);
+
+		System.out.println(s1.toString());
+		System.out.println(s2.toString());
+	}
+}
+
+Q10.What is the final class in Java?
+
+The final modifier for finalizing the implementations of classes, methods, and variables.
+
+The main purpose of using a class being declared as final is to prevent the class from being subclassed. If a class is marked as final then no class can inherit any feature from the final class.
+
+You cannot extend a final class. If you try it gives you a compile time error.
+
+example
+
+final class Super {
+   private int data = 30;
+}
+public class Sub extends Super{
+   public static void main(String args[]){
+   }
+}
+
+o/p=error
